@@ -149,6 +149,9 @@ pub struct Merchant {
     pub online: bool,
     pub atm: bool,
     pub address: Address,
+
+    #[serde(flatten)]
+    pub extra: HashMap<String, serde_json::Value>,
 }
 
 /// Address details
@@ -166,6 +169,9 @@ pub struct Address {
     pub region: String,
     pub country: String,
     pub postcode: String,
+
+    #[serde(flatten)]
+    pub extra: HashMap<String, serde_json::Value>,
 }
 
 #[derive(Serialize, Default, Debug)]
